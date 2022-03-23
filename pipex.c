@@ -6,7 +6,7 @@
 /*   By: azane <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:27:32 by azane             #+#    #+#             */
-/*   Updated: 2022/03/23 20:09:31 by azane            ###   ########.fr       */
+/*   Updated: 2022/03/23 20:14:18 by azane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	ft_close(int fd)
 {
-	//if (fd > -1)
-		close(fd);
+	close(fd);
 }
 
 int	main(int argc, char **argv, char *env[])
 {
-	int	fifo[2][2];
-	int	cur_pipe;
-	int	file_in;
-	int	file_out;
-	int	i;
-	int	pid;
+	int		fifo[2][2];
+	int		cur_pipe;
+	int		file_in;
+	int		file_out;
+	int		i;
+	int		pid;
+	char	*tmp;
 
 	file_in = open(argv[1], O_RDWR, 0777);
 	file_out = open(argv[argc - 1], O_CREAT | O_WRONLY | O_TRUNC, 0777);
@@ -61,7 +61,7 @@ int	main(int argc, char **argv, char *env[])
 			}
 			if (i == argc - 2)
 				dup2(file_out, 1);
-			char *tmp[] = {"./pipex", "-c", argv[i]};
+			tmp[] = {"./pipex", "-c", argv[i]};
 			if (execve("/bin/sh", tmp, env) == -1)
 				ft_fatal("execl");
 		}
