@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azane <azane@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 14:36:49 by azane             #+#    #+#             */
-/*   Updated: 2022/03/28 23:13:29 by azane            ###   ########.fr       */
+/*   Created: 2022/03/29 19:40:47 by azane             #+#    #+#             */
+/*   Updated: 2022/03/29 19:41:14 by azane            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void	*p;
-
-	p = malloc(nmemb * size);
-	if (p != NULL)
-		ft_bzero(p, nmemb * size);
-	return (p);
-}
+# include "stdio.h"
+# include "libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include "fcntl.h"
+#endif
