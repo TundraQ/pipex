@@ -15,7 +15,7 @@ libft:  libft/libft.a
 libft/libft.a:
 	$(MAKE) -C libft
 
-%.o: %.c $(HEADER)
+%.o: %.c %.h
 	$(CC) $(CFLAGS) -c $<
 
 $(NAME): $(OBJ_FILES)
